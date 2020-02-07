@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+
+<launch>
+
+   <!-- <node name ="usb_cam1" pkg="usb_cam" type="usb_cam_node" output="screen">
+      <param name="video_device" value="/dev/video0" />
+      <param name="image_width" value="640" />
+      <param name="image_height" value="480" />
+      <param name="pixel_format" value="yuyv" />
+      <param name="camera_frame_id" value="yuyv" />
+      <param name="io_method" value="mmap" />
+   </node> -->
+   <node name="serial_node" pkg="rosserial_python" type="serial_node.py">
+      <param name="port" type="string" value="/dev/ttyACM0" />
+      <param name="baud" type="int" value="57600" />
+   </node>
+
+
+
+
+   <!-- <node pkg="sensor_connect" type="camera_images.py" name="camera_images" output="screen" /> -->
+   <node pkg="sensor_connect" type="example.py" name="example" output="screen" />
+   <node pkg="sensor_connect" type="datacheck.py" name="datacheck" output="screen" />
+   <node pkg="sensor_connect" type="camera_images.py" name="camera_images" output="screen" />
+
+</launch>
